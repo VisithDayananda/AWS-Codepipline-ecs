@@ -1,0 +1,18 @@
+version: 0
+Resources:
+- TargetService:
+    Type: AWS::ECS::Service
+    Properties:
+      TaskDefinition: <TASK_DEFINITION>
+      LoadBalancerInfo:
+        ContainerName: sample-app-container
+        ContainerPort: 80
+      PlatformVersion: LATEST
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets:
+          - subnet-058b04f94ddbbf53f
+          - subnet-095522a18c2801816
+          SecurityGroups:
+          - sg-052669df75b67e392
+          AssignPublicIp: DISABLED
